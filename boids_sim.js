@@ -7,7 +7,7 @@ simulationInfo = {
   roost: {x: 0.5, y: 0.5, z: 0},
   boids: [],
   predators: [],
-  boardSize: 4800,
+  boardSize: 2400,
   nBoids: 3000,
   nPredators: 0,
   birdSpeed: 0.001,

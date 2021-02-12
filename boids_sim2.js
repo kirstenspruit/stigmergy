@@ -8,7 +8,7 @@ simulationInfo = {
   boids: [],
   predators: [],
   boardSize: 2400,
-  nBoids: 1000,
+  nBoids: 3000,
   nPredators: 0,
   birdSpeed: 0.001,
   predatorSpeed: 0.006,
