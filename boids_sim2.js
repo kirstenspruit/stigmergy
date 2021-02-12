@@ -27,7 +27,7 @@ simulationInfo = {
   zoom: 4,
   handle: 0,
   tick: 0,
-  show: {avoid: false, align: false, attract: false, flee: false, roost: false}
+  show: {avoid: false, align: false, attract: false, flee: false, roost: true}
 };
 
 
@@ -43,7 +43,7 @@ function init() {
   simulationInfo.board = document.createElement("canvas");
   simulationInfo.board.width = simulationInfo.boardSize;
   simulationInfo.board.height = simulationInfo.boardSize;
-  addMouseTracker(document.getElementById("boidwindow"));
+  addMouseTracker(document.getElementById("viewport"));
   for (i = 0; i < simulationInfo.nBoids; ++i) {
     simulationInfo.boids[i] = getNewBoid();
   }
@@ -160,7 +160,7 @@ function recalculateSpeeds() {
     if (avoid.x != 0 || avoid.y != 0 || avoid.z != 0) {
       simulationInfo.boids[i].speed[1 - simulationInfo.tick] = normalize(addVector(simulationInfo.boids[i].speed[1 - simulationInfo.tick], multiplyVector(normalize(avoid), simulationInfo.predatorAvoidanceStrength)));
     }
-    if (document.getElementById("boidwindow").mouse.hasFocus && getDistance(simulationInfo.boids[i].position, getMousePosition()) < simulationInfo.predatorAvoidance) {
+    if (document.getElementById("viewport").mouse.hasFocus && getDistance(simulationInfo.boids[i].position, getMousePosition()) < simulationInfo.predatorAvoidance) {
       simulationInfo.boids[i].speed[1 - simulationInfo.tick] = multiplyVector(normalize(addVector(simulationInfo.boids[i].speed[1 - simulationInfo.tick], multiplyVector(normalize(getMouseAvoidance(simulationInfo.boids[i])), simulationInfo.predatorAvoidanceStrength))),2);
     }
   }
@@ -233,7 +233,7 @@ function requestRepaint() {
 }
 
 function getMousePosition() {
-return {x: document.getElementById("boidwindow").mouse.x/(document.getElementById("boidwindow").width*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, y: document.getElementById("boidwindow").mouse.y/(document.getElementById("boidwindow").height*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, z: 0};
+return {x: document.getElementById("viewport").mouse.x/(document.getElementById("viewport").width*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, y: document.getElementById("viewport").mouse.y/(document.getElementById("viewport").height*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, z: 0};
 }
 
 function repaint() {
@@ -315,9 +315,9 @@ function repaint() {
     ctx.fill();
     ctx.restore();
   }
-  ctx = document.getElementById("boidwindow").getContext("2d");
-  ctx.clearRect(0,0,document.getElementById("boidwindow").width,document.getElementById("boidwindow").height);
-  ctx.drawImage(simulationInfo.board, simulationInfo.boardSize*(1 - 1/simulationInfo.zoom)/2, simulationInfo.boardSize*(1 - 1/simulationInfo.zoom)/2, simulationInfo.boardSize/simulationInfo.zoom, simulationInfo.boardSize/simulationInfo.zoom, 0, 0, document.getElementById("boidwindow").width, document.getElementById("boidwindow").height);
+  ctx = document.getElementById("viewport").getContext("2d");
+  ctx.clearRect(0,0,document.getElementById("viewport").width,document.getElementById("viewport").height);
+  ctx.drawImage(simulationInfo.board, simulationInfo.boardSize*(1 - 1/simulationInfo.zoom)/2, simulationInfo.boardSize*(1 - 1/simulationInfo.zoom)/2, simulationInfo.boardSize/simulationInfo.zoom, simulationInfo.boardSize/simulationInfo.zoom, 0, 0, document.getElementById("viewport").width, document.getElementById("viewport").height);
   simulationInfo.handle = 0;
 }
 
