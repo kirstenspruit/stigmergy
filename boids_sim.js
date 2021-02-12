@@ -233,7 +233,7 @@ function requestRepaint() {
 }
 
 function getMousePosition() {
-return {x: document.getElementById("boidwindow").mouse.x/(document.getElementById("boidwindow").width*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, y: document.getElementById("boidwindow").mouse.y/(document.getElementById("boidwindow").height*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, z: 0};
+return {x: document.getElementById("boidwindow").mouse.x/(document.getElementById("boidwindow").offsetWidth*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, y: document.getElementById("boidwindow").mouse.y/(document.getElementById("boidwindow").offsetHeight*simulationInfo.zoom) + (1 - 1/simulationInfo.zoom)/2, z: 0};
 }
 
 function repaint() {

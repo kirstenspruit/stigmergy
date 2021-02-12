@@ -38,16 +38,16 @@ small {
  font-size: 15px;
 }
 
-.homepage {
+.title-homepage {
   padding: 15px;
   position: fixed;
 }
 
-.homepage h1{
+.title-homepage h1{
   margin-top: 15px;
 }
 
-.episodes {
+.overview {
   padding: 15px;
   width: 100vw;
   color: #fff;
@@ -81,6 +81,9 @@ small {
   margin-top: -15;
   z-index: 1000;
   position: relative;
+  overflow: hidden;
+  height: calc(100vh - 120px);
+  max-height: 100vw;
 }
 
 #boidwindow {
@@ -89,6 +92,10 @@ small {
 
 #boidcontrols {
   display: none;
+}
+canvas {
+width: 100vw;
+height: auto;
 }
 
 @keyframes fade {
