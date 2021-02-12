@@ -103,3 +103,10 @@ height: auto;
 
   100% {background-color: #2E555C;}
 	}
+
+  /* ---------------------------- MOBILE ---------------------------- */
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+
+}
