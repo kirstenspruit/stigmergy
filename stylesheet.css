@@ -5,6 +5,7 @@
 body {
   margin: 0;
   background-color: #000;
+  animation: fade 60s infinite alternate;
   font-family: sans-serif;
   letter-spacing: 1px;
   color: #fff;
@@ -13,17 +14,73 @@ body {
 h1 {
   font-size: 30px;
   font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  display: inline;
+  font-size: 25px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+small {
+ display: inline;
+ font-size: 15px;
+}
+
+.homepage {
+  padding: 15px;
+  position: fixed;
+}
+
+.homepage h1{
+  margin-top: 15px;
+}
+
+.episodes {
+  padding: 15px;
+  width: 100vw;
+  color: #fff;
+  border-top: 1px solid #fff;
+}
+
+.title {
+  padding: 15px;
+  height: 90px;
+  border-bottom: 1px solid #fff;
+}
+
+.info {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-bottom: 90px;
+}
+
+.grid111 {
+  padding: 7.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .content {
-  z-index: 1000;
-  position: relative;
-  margin: 15px;
+  padding: 7.5px;
 }
 
 .background {
   margin-top: -15;
-  position: fixed;
+  z-index: 1000;
+  position: relative;
 }
 
 #boidwindow {
@@ -33,3 +90,9 @@ h1 {
 #boidcontrols {
   display: none;
 }
+
+@keyframes fade {
+  0%   {background-color:: #000;}
+
+  100% {background-color: #2E555C;}
+	}
