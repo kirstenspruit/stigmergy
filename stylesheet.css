@@ -4,13 +4,13 @@
 
 body {
   margin: 0;
-  background-color: #000;
-  animation: fade 60s infinite alternate;
-  font-family: sans-serif;
+  background-color: #333;
+/*  animation: fade 60s infinite alternate; */
+  font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   color: #fff;
 }
-
+/* ----------------------- TYPE ----------------------- */
 h1 {
   font-size: 30px;
   font-weight: normal;
@@ -19,18 +19,54 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: normal;
   padding: 0;
   margin: 0;
 }
 
 p {
-  display: inline;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: normal;
   padding: 0;
   margin: 0;
+}
+.menu p {
+  display: inline;
+  font-size: 25px;
+}
+
+.info p {
+  font-size: 22px;
+}
+
+p.video-title {
+  font-size: 22px;
+  font-style: italic;
+  padding-bottom: 7.5px;
+}
+p.video-subtitle {
+  font-size: 18px;
+}
+p.video-description {
+  font-size: 16px;
+}
+p.video-credits {
+  font-size: 12px;
+    color: #999;
+}
+p.video-sources {
+  font-size: 12px;
+  color: #999;
+}
+
+a {
+  color: #CCFF00;
+  text-decoration: none;
+}
+a:hover {
+  color: #CCFF00;
+  font-style: italic;
 }
 
 small {
@@ -38,45 +74,60 @@ small {
  font-size: 15px;
 }
 
-.title-homepage {
+hr {
+  border-top: 0px;
+  border-bottom: 1px solid #fff;
+}
+
+/* ----------------------- LAYOUT ----------------------- */
+.header-homepage {
+  margin-top: 15px;
   padding: 15px;
   position: fixed;
 }
 
-.title-homepage h1{
-  margin-top: 15px;
-}
-
-.overview {
-  padding: 15px;
+.menu {
+  padding: 7.5px;
   width: 100vw;
   color: #fff;
   border-top: 1px solid #fff;
 }
 
-.title {
-  padding: 15px;
-  height: 90px;
+header {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  padding: 7.5px;
+  padding-bottom: 60px;
   border-bottom: 1px solid #fff;
 }
 
+.box {
+  padding: 7.5px;
+  width: 100%;
+}
+
 .info {
-  padding: 15px;
+  padding: 7.5px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  padding-bottom: 90px;
+  border-bottom: 1px solid #fff;
 }
 
-.grid111 {
-  padding: 7.5px;
+.videos {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-}
-
-.content {
   padding: 7.5px;
+  border-bottom: 1px solid #fff;
+}
+.videos img{
+  margin-bottom: 15px;
+  width: 100%;
+}
+.videos .box{
+  border-right: 1px solid #fff;
 }
 
+/* ----------------------- BOIDS ----------------------- */
 .background {
   margin-top: -15;
   z-index: 1000;
@@ -97,7 +148,74 @@ canvas {
 width: 100%;
 height: auto;
 }
+/* ----------------------- LIGHTBOX ----------------------- */
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
+/* Modal Content */
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1280px;
+  height: 90%;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ----------------------- BACKGROUND COLOR ----------------------- */
 @keyframes fade {
   0%   {background-color:: #000;}
 
@@ -105,8 +223,22 @@ height: auto;
 	}
 
   /* ---------------------------- MOBILE ---------------------------- */
+  @media only screen and (max-width:800px) {
+    /* For mobile phones: */
+   header {
+     grid-template-columns: 1fr;
+     padding-bottom: 7.5px;
+   }
 
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
+   .videos {
+     grid-template-columns: 1fr;
+   }
+   .videos .box{
+     border-right: none;
+   }
 
+
+
+
+ }
 }
