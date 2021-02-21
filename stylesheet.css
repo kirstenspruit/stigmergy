@@ -4,12 +4,41 @@
 
 body {
   margin: 0;
-  background-color: #333;
-/*  animation: fade 60s infinite alternate; */
+  background-color: #111;
+  animation: fade 60s infinite alternate;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   color: #fff;
 }
+
+/* ----------------------- LAYOUT ----------------------- */
+header {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #fff;
+}
+
+header .box {
+  border: none;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.box {
+  padding: 12px;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+}
+
 /* ----------------------- TYPE ----------------------- */
 h1 {
   font-size: 30px;
@@ -18,60 +47,43 @@ h1 {
   margin: 0;
 }
 
-h2 {
-  font-size: 22px;
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
-}
-
 p {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: normal;
   padding: 0;
   margin: 0;
-}
-.menu p {
-  display: inline;
-  font-size: 25px;
-}
-
-.info p {
-  font-size: 22px;
 }
 
 p.video-title {
-  font-size: 22px;
+  font-size: 20px;
   font-style: italic;
-  padding-bottom: 7.5px;
+  padding-bottom: 6px;
 }
-p.video-subtitle {
-  font-size: 18px;
-}
+
 p.video-description {
   font-size: 16px;
 }
+
 p.video-credits {
-  font-size: 12px;
-    color: #999;
-}
-p.video-sources {
   font-size: 12px;
   color: #999;
 }
 
 a {
-  color: #CCFF00;
+  color: #fff;
   text-decoration: none;
+  border-bottom: 1px solid #fff;
 }
+
 a:hover {
   color: #CCFF00;
   font-style: italic;
+  border-bottom: 1px solid #CCFF00;
 }
 
 small {
- display: inline;
- font-size: 15px;
+  display: inline;
+  font-size: 14px;
 }
 
 hr {
@@ -79,51 +91,13 @@ hr {
   border-bottom: 1px solid #fff;
 }
 
-/* ----------------------- LAYOUT ----------------------- */
-.header-homepage {
-  margin-top: 15px;
-  padding: 15px;
-  position: fixed;
-}
-
-.menu {
-  padding: 7.5px;
-  width: 100vw;
-  color: #fff;
-  border-top: 1px solid #fff;
-}
-
-header {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  padding: 7.5px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid #fff;
-}
-
-.box {
-  padding: 7.5px;
+/* ----------------------- VIDEO ----------------------- */
+.videos img {
+  margin-bottom: 12px;
   width: 100%;
 }
 
-.info {
-  padding: 7.5px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  border-bottom: 1px solid #fff;
-}
-
-.videos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 7.5px;
-  border-bottom: 1px solid #fff;
-}
-.videos img{
-  margin-bottom: 15px;
-  width: 100%;
-}
-.videos .box{
+.videos .box {
   border-right: 1px solid #fff;
 }
 
@@ -133,7 +107,7 @@ header {
   z-index: 1000;
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 110px);
   max-height: 100vw;
 }
 
@@ -144,10 +118,12 @@ header {
 #boidcontrols {
   display: none;
 }
+
 canvas {
-width: 100%;
-height: auto;
+  width: 100%;
+  height: auto;
 }
+
 /* ----------------------- LIGHTBOX ----------------------- */
 /* The Modal (background) */
 .modal {
@@ -160,7 +136,7 @@ height: auto;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 /* Modal Content */
@@ -217,28 +193,34 @@ img.hover-shadow {
 
 /* ----------------------- BACKGROUND COLOR ----------------------- */
 @keyframes fade {
-  0%   {background-color:: #000;}
+  0% {
+    background-color: : #111;
+  }
 
-  100% {background-color: #2E555C;}
-	}
+  100% {
+    background-color: #2E555C;
+  }
+}
 
-  /* ---------------------------- MOBILE ---------------------------- */
-  @media only screen and (max-width:800px) {
-    /* For mobile phones: */
-   header {
-     grid-template-columns: 1fr;
-     padding-bottom: 7.5px;
-   }
+/* ---------------------------- MOBILE ---------------------------- */
+@media only screen and (max-width:800px) {
 
-   .videos {
-     grid-template-columns: 1fr;
-   }
-   .videos .box{
-     border-right: none;
-   }
+  /* For mobile phones: */
+  header {
+    grid-template-columns: 1fr;
+    padding-bottom: 7.5px;
+  }
 
+  .info {
+    grid-template-columns: 1fr;
+  }
 
+  .videos {
+    grid-template-columns: 1fr;
+  }
 
-
- }
+  .section .box {
+    border-right: none;
+    border-bottom: 1px solid #fff;
+  }
 }
